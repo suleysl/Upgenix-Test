@@ -59,10 +59,13 @@ public class Upgenix_Login {
         loginPage.loginBtn.click();
     }
 
-    @Then("error message is displayed")
-    public void errorMessageIsDisplayed() {
-        String message = loginPage.usernameInputBox.getAttribute("required");
-        Assert.assertEquals("true", message);
+    @Then("user should see {string} message is displayed")
+    public void user_should_see_message_is_displayed(String message) {
+        String message1 = loginPage.usernameInputBox.getAttribute("validationMessage");
+        String message2 = loginPage.passwordInputBox.getAttribute("validationMessage");
+        System.out.println(message1);
+        System.out.println(message2);
+        Assert.assertTrue(message1.equals(message) || message2.equals(message));
     }
 
 
@@ -84,5 +87,6 @@ public class Upgenix_Login {
     public void userEntersValidAndValidAndPressEnterKey(String username, String password) {
         loginPage.usernameInputBox.sendKeys(username + Keys.ENTER);
         loginPage.passwordInputBox.sendKeys(password + Keys.ENTER);
+
     }
 }

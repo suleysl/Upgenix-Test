@@ -68,7 +68,7 @@ Feature: Upgenix Login Feature
 
 
 
-	@BRT-312 @wip
+	@BRT-312
 	Scenario Outline: Verify if the 'Enter' key of the keyboard is working [AutomationS3-Sule]
 		When user enters valid "<Username>" and valid "<Password>" and press Enter key
 		Then user should see the title is "Odoo"
